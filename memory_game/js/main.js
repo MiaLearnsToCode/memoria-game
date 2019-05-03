@@ -50,18 +50,21 @@ var lives = ["3","2","1","0"];
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
   	alert("Congratulations, You found a match!");
-	refreshBoard();
+	clearBoardWon();
 	} 
 	else {
   	alert("Sorry, not a match!");
-	  	 if (lives.length > 2) {
+	  	 if (lives.length > 3) {
 	  	 lives.shift();
-	  	 alert("You have " + "" + lives[0] +" " + "lives left");
 	  	 refreshBoard();
+	  	 }
+	  	 else if (lives.length === 3) {
+	  	 lives.shift();
+	  	 lastRefreshBoard();
 	  	 }
 	  	 else {
 	  	 alert("You failed!");
-	  	 clearBoard();
+	  	 clearBoardLost();
 	  	 };
 	}
 };
@@ -84,32 +87,86 @@ function flipCard() {
 
 // create a new game
 function createBoard() {
+	var livesTracker = document.createElement('h3');
+	    livesTracker.innerHTML = "You have " + "" + lives[0] +" " + "lives left";
+	    livesTracker.setAttribute('id','livesTracker');
+	    document.getElementById('game-board').appendChild(livesTracker);
+
 	for (var i = 0; i < cards.length; i++) {
-    var cardElement = document.createElement('img');
-    cardElement.setAttribute('src',"images/back.jpg");
-    cardElement.setAttribute('data-id', i);
-    cardElement.addEventListener('click', flipCard);
+	    var cardElement = document.createElement('img');
+	    cardElement.setAttribute('src',"images/back.jpg");
+	    cardElement.setAttribute('data-id', i);
+	    cardElement.addEventListener('click', flipCard);
 	document.getElementById('game-board').appendChild(cardElement);
 	}
 }
 
 function refreshBoard() {
-	cardsInPlay = []
-	var allCards = document.getElementsByTagName('img')
+	cardsInPlay = [];
+
+	var refreshTracker = document.getElementById('livesTracker');
+	refreshTracker.parentNode.removeChild(refreshTracker);
+	var allCards = document.getElementsByTagName('img');
 	while (allCards[0]) {
 		allCards[0].parentNode.removeChild(allCards[0]);
 	}
+
 	createBoard();
 }
 
-function clearBoard() {
+function lastBoard() {
+	var livesTracker = document.createElement('h3');
+	    livesTracker.innerHTML = "You only have one life left!";
+	    livesTracker.setAttribute('id','livesTracker');
+	    document.getElementById('game-board').appendChild(livesTracker);
+
+	for (var i = 0; i < cards.length; i++) {
+	    var cardElement = document.createElement('img');
+	    cardElement.setAttribute('src',"images/back.jpg");
+	    cardElement.setAttribute('data-id', i);
+	    cardElement.addEventListener('click', flipCard);
+	document.getElementById('game-board').appendChild(cardElement);
+	}
+
+}
+
+function lastRefreshBoard() {
+	cardsInPlay = [];
+
+	var refreshTracker = document.getElementById('livesTracker');
+	refreshTracker.parentNode.removeChild(refreshTracker);
+	var allCards = document.getElementsByTagName('img');
+	while (allCards[0]) {
+		allCards[0].parentNode.removeChild(allCards[0]);
+	}
+
+	lastBoard();
+}
+
+
+function clearBoardLost() {
 	cardsInPlay = []
+	var refreshTracker = document.getElementById('livesTracker');
+	refreshTracker.parentNode.removeChild(refreshTracker);
 	var allCards = document.getElementsByTagName('img')
 	while (allCards[0]) {
 		allCards[0].parentNode.removeChild(allCards[0]);
 	};
 	var losingMessage = document.createElement('h1');
-	losingMessage.textContent = "You lost refresh the page to play again" ;
+	losingMessage.textContent = "You lost! Please refresh the page to play again" ;
+	document.getElementById('game-board').appendChild(losingMessage);
+}
+
+function clearBoardWon() {
+	cardsInPlay = []
+	var refreshTracker = document.getElementById('livesTracker');
+	refreshTracker.parentNode.removeChild(refreshTracker);
+	var allCards = document.getElementsByTagName('img')
+	while (allCards[0]) {
+		allCards[0].parentNode.removeChild(allCards[0]);
+	};
+	var losingMessage = document.createElement('h1');
+	losingMessage.textContent = "Congratulations, you won! Please refresh the page to play again" ;
 	document.getElementById('game-board').appendChild(losingMessage);
 }
 
