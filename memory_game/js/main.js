@@ -44,18 +44,27 @@ var cards = [
 ];
 //Array of the cards picked by the player
 var cardsInPlay = [];
+var lives = ["3","2","1","0"];
 
 //function checks if the cards picked are the same 
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-  	alert("Congratulations, You found a match! Refresh the page to play again");
+	lives.push("extra");
+  	alert("Congratulations, You found a match! You gained a life point");
 	refreshBoard();
-} 
+	} 
 	else {
-  	alert("Sorry, not a match! Refresh the page to play again");
+  	alert("Sorry, not a match!");
+	  	 if (lives.length > 2) {
+	  	 lives.shift();
+	  	 alert("You have " + "" + lives[0] +" " + "lives left");
+	  	 }
+	  	 else {
+	  	 alert("You failed!");
+	  	 };
   	refreshBoard();
 	}
-}
+};
 
 //
 function flipCard() {
@@ -94,11 +103,4 @@ function refreshBoard() {
 }
 
 createBoard();
-
-
-
-
-
-
-
 
