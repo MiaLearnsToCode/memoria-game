@@ -49,16 +49,17 @@ var cardsInPlay = [];
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
   	alert("Congratulations, You found a match! Refresh the page to play again");
-	} 
+	refreshBoard();
+} 
 	else {
   	alert("Sorry, not a match! Refresh the page to play again");
+  	refreshBoard();
 	}
 }
 
 //
 function flipCard() {
 	var cardId = this.getAttribute('data-id');
-	
 	console.log("User flipped " + cards[cardId].word);
 	cardsInPlay.push(cards[cardId].word);
 	console.log(cards[cardId].cardImage);
@@ -71,6 +72,7 @@ function flipCard() {
 	checkForMatch();
 	}
 }
+
 // create a new game
 function createBoard() {
 	for (var i = 0; i < cards.length; i++) {
@@ -82,7 +84,17 @@ function createBoard() {
 	}
 }
 
+function refreshBoard() {
+	cardsInPlay = []
+	var allCards = document.getElementsByTagName('img')
+	while (allCards[0]) {
+		allCards[0].parentNode.removeChild(allCards[0]);
+	}
+	createBoard();
+}
+
 createBoard();
+
 
 
 
