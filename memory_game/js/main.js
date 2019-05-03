@@ -49,8 +49,7 @@ var lives = ["3","2","1","0"];
 //function checks if the cards picked are the same 
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-	lives.push("extra");
-  	alert("Congratulations, You found a match! You gained a life point");
+  	alert("Congratulations, You found a match!");
 	refreshBoard();
 	} 
 	else {
@@ -58,11 +57,12 @@ function checkForMatch() {
 	  	 if (lives.length > 2) {
 	  	 lives.shift();
 	  	 alert("You have " + "" + lives[0] +" " + "lives left");
+	  	 refreshBoard();
 	  	 }
 	  	 else {
 	  	 alert("You failed!");
+	  	 clearBoard();
 	  	 };
-  	refreshBoard();
 	}
 };
 
@@ -100,6 +100,17 @@ function refreshBoard() {
 		allCards[0].parentNode.removeChild(allCards[0]);
 	}
 	createBoard();
+}
+
+function clearBoard() {
+	cardsInPlay = []
+	var allCards = document.getElementsByTagName('img')
+	while (allCards[0]) {
+		allCards[0].parentNode.removeChild(allCards[0]);
+	};
+	var losingMessage = document.createElement('h1');
+	losingMessage.textContent = "You lost refresh the page to play again" ;
+	document.getElementById('game-board').appendChild(losingMessage);
 }
 
 createBoard();
