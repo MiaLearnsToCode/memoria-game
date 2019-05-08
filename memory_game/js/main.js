@@ -97,6 +97,7 @@ function createBoard() {
 	    cardElement.setAttribute('src',"images/back.jpg");
 	    cardElement.setAttribute('data-id', i);
 	    cardElement.addEventListener('click', flipCard);
+	    cardElement.setAttribute('class',"zoom");
 	document.getElementById('game-board').appendChild(cardElement);
 	}
 }
@@ -125,6 +126,7 @@ function lastBoard() {
 	    cardElement.setAttribute('src',"images/back.jpg");
 	    cardElement.setAttribute('data-id', i);
 	    cardElement.addEventListener('click', flipCard);
+	    cardElement.setAttribute('class',"zoom");
 	document.getElementById('game-board').appendChild(cardElement);
 	}
 
