@@ -3,37 +3,39 @@ text-align: center;
 }
 
 header {
-	background-color: #F15B31;
+	background-color: #FF5500;
 	color: #FFFFFF;
 	padding: 30px 20px;
 	margin:0;
 }
 
 nav {
-	background-color: #00A6B3; 
 	color: #FFFFFF;
-	padding:20px;
+	padding: 30px 20px 0px 20px;
 }
 
-main {
-	margin: 35px 50px;
+main { 
+	padding: 0px 150px ;
 }
 
 #game {
+	background-color: #40bfff; 
 	max-width: 850px;
-	margin: 35px auto ;
+	margin: 20px auto ;
+	padding:30px 10px;
+	border-radius: 25px;
 }
 
 h1 {
-font-family: "Raleway", sans-serif;
-color: #0D2C40;
+font-family: 'Gugi', cursive;
+color:white;
 font-weight: 400;
 font-size:45px;
 margin:0;
 }
 
 h2 {
-font-family: "Raleway", sans-serif;
+font-family: 'Gugi', cursive;
 color: #F15B31;
 letter-spacing: 1px;
 font-weight: 600;
@@ -43,29 +45,32 @@ display: inline-block;
 }
 
 h3 {
-font-family: "Raleway", sans-serif;
-color: #0D2C40;
-letter-spacing: 1px;
+font-family: 'Gugi', cursive;
+color: white;
+letter-spacing: 8px;
 font-weight: 600;
-font-size:20px;
+font-size:25px;
 text-transform: uppercase;
 }
 
 p {
-font-family: "Droid Serif", serif;
-line-height: 26px;
+font-family: 'Roboto Condensed', sans-serif;
+line-height: 35px;
 font-size: 18px;
 }
 
 a {
 border-bottom: 2px solid transparent;
 margin: 0px 20px;
-color:white;
+color:#40bfff;
 text-decoration: none;
 }
 
 a:hover {
-border-color: white;
+background-color:#ff00ff;
+color: white;
+padding: 8px;
+border-radius: 15px;
 }
 
 img {
@@ -85,12 +90,12 @@ img {
 footer {
 text-transform:uppercase;
 padding:0px 20px;
-background-color:#0D2C40;
+background-color: #FF5500;
 color: white;
 font-size:14px;
 letter-spacing: .08em;
 font-weight:500;
-font-family: Raleway;
+font-family: 'Roboto Condensed', sans-serif;
 }
 
 .copyright {
@@ -111,12 +116,10 @@ font-size: 0;
 }
 
 .name {
-color: #F15B31;
+color: #40bfff;
 font-weight: 700;
 }
 
-a:hover {
-/* Your styles here */
-}
+
 
 
