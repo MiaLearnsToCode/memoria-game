@@ -18,7 +18,7 @@ This project is a memory game built with Vanilla Javascript.
 
 ## Deployment
 
-The game is deployed on GitHub Pages and it can be found here: https://memoria-game.glitch.me
+The game is deployed on Glitch and it can be found here: https://memoria-game.glitch.me
 
 ## Getting Started
 
