@@ -5,7 +5,7 @@ This is a project I made before starting the General Assembly Software Engineeri
 
 ---
 
-# Spongebob SquarePants Connect Four
+# Memoria Game
 
 This project is a memory game built with Vanilla Javascript.
 
